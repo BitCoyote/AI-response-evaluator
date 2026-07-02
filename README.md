@@ -114,8 +114,22 @@ cp .env.example .env
 # Seed sample data
 python seed_data.py
 
-# Start server
+# Start server (must run from backend/ so Python can find the app package)
 uvicorn app.main:app --reload --port 8000
+
+# Or use the helper script from backend/
+python run.py
+```
+
+From the project root, use `--app-dir backend` or the root npm scripts:
+
+```bash
+# From project root
+uvicorn app.main:app --app-dir backend --reload --port 8000
+
+# Or run both frontend and backend
+npm install
+npm run dev
 ```
 
 ### Frontend Setup
